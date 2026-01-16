@@ -2,7 +2,7 @@
 
 Este proyecto es un **Sistema de Gestión Empresarial** desarrollado en **Python**, diseñado para administrar información de **clientes, productos, vendedores y ventas** mediante operaciones **CRUD** y conexión a una base de datos.
 
-El sistema está estructurado de forma modular, facilitando el mantenimiento, la escalabilidad y la comprensión del código.
+El sistema está estructurado de forma modular, facilitando el mantenimiento, la escalabilidad y la comprensión del código, es un app que funciona por consola.
 
 ---
 
