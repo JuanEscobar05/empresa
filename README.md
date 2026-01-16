@@ -1,221 +1,138 @@
-# 🏢 Sistema de Gestión Empresarial
+# Sistema de Gestión Empresarial en Python
 
-## 📌 Descripción General
+Este proyecto es un **Sistema de Gestión Empresarial** desarrollado en **Python**, diseñado para administrar información de **clientes, productos, vendedores y ventas** mediante operaciones **CRUD** y conexión a una base de datos.
 
-El proyecto **Empresa** es una aplicación de consola desarrollada en **Python**, orientada a la gestión básica de una empresa. El sistema permite administrar **usuarios, vendedores, productos, tiendas y ventas**, aplicando una **estructura tipo MVC (Modelo – Vista – Controlador)** y conexión a base de datos.
-
-Este proyecto demuestra el uso de **programación modular**, separación de responsabilidades y conexión a base de datos, siendo ideal para **presentación académica o entrevista técnica**.
+El sistema está estructurado de forma modular, facilitando el mantenimiento, la escalabilidad y la comprensión del código.
 
 ---
 
-## 🎯 Objetivos del Proyecto
+## Características Principales
 
-* Gestionar usuarios del sistema.
-* Administrar vendedores.
-* Registrar y visualizar productos.
-* Gestionar tiendas.
-* Registrar ventas.
-* Aplicar el patrón MVC.
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-* **Lenguaje:** Python 3
-* **Base de datos:** MySQL (mediante conexión)
-* **Paradigma:** Programación estructurada / modular
-* **Arquitectura:** MVC (Modelo – Vista – Controlador)
-* **Entorno:** Consola
+- Conexión centralizada a base de datos
+- Operaciones CRUD completas
+- Separación clara de responsabilidades
+- Arquitectura modular
+- Fácil extensión a nuevas entidades
+- Orientado a proyectos académicos y administrativos
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
-```
-empresa/
+```text
+empresa-main/
+├── 📁 Connection/
+│   ├── 📁 __pycache__/
+│   └── 📄 db.py
 │
-├── main.py
+├── 📁 Crd/
+│   ├── 📁 __pycache__/
+│   ├── 📄 crudCliente.py
+│   ├── 📄 crudProducto.py
+│   ├── 📄 crudVendedor.py
+│   └── 📄 crudVenta.py
 │
-├── Connection/
-│   └── conexion.py
+├── 📁 modules/
+│   ├── 📁 Lib/
+│   └── ⚙️ pyvenv.cfg
 │
-├── controllers/
-│   ├── controladorProducto.py
-│   ├── controladorTienda.py
-│   ├── controladorUsuarios.py
-│   ├── controladorVendedor.py
-│   └── controladorVenta.py
-│
-├── models/
-│   ├── producto.py
-│   ├── tienda.py
-│   ├── usuario.py
-│   ├── vendedor.py
-│   └── venta.py
-│
-├── views/
-│   ├── vistaProducto.py
-│   ├── vistaTienda.py
-│   ├── vistaUsuarios.py
-│   ├── vistaVendedor.py
-│   └── vistaVenta.py
-│
-└── modules/
-    └── venv/ (entorno virtual)
-```
-
-> ⚠️ Nota: La carpeta `modules/` contiene el entorno virtual y no hace parte de la lógica del sistema.
+├── 📁 Table/
+│   ├── 📁 __pycache__/
+│   ├── 📄 TablaCliente.py
+│   ├── 📄 TablaProducto.py
+│   ├── 📄 TablaVendedor.py
+│   ├── 📄 TablaVenta.py
+│   └── 📄 main.py
+````
 
 ---
 
-## 🧠 Arquitectura MVC
+##  Descripción de Carpetas y Archivos
 
-### 📦 Modelo (`models`)
+### Connection
 
-Contiene las clases que representan las entidades del sistema:
+Contiene la lógica relacionada con la conexión a la base de datos.
 
-* Usuario
-* Vendedor
-* Producto
-* Tienda
-* Venta
-
-Cada modelo define los atributos y estructura de los datos.
+* **db.py**
+  Archivo encargado de establecer y administrar la conexión a la base de datos, reutilizable por los demás módulos del sistema.
 
 ---
 
-### 🎮 Controlador (`controllers`)
+### Crd (CRUD)
 
-Gestiona la lógica del negocio y conecta el modelo con la vista:
+Incluye los módulos que implementan las operaciones **Crear, Leer, Actualizar y Eliminar** para cada entidad.
 
-* Crear registros
-* Consultar información
-* Actualizar datos
-* Eliminar registros
+* **crudCliente.py** → Gestión de clientes
+* **crudProducto.py** → Gestión de productos
+* **crudVendedor.py** → Gestión de vendedores
+* **crudVenta.py** → Gestión de ventas
 
-Ejemplo:
-
-* `controladorProducto.py` gestiona la lógica relacionada con productos.
+Cada archivo encapsula la lógica de negocio específica de su entidad.
 
 ---
 
-### 🖥️ Vista (`views`)
+### modules
 
-Encargada de la interacción con el usuario por consola:
+Carpeta correspondiente al **entorno virtual de Python**.
 
-* Mostrar menús
-* Solicitar datos
-* Mostrar resultados
+* **Lib/** → Librerías instaladas
+* **pyvenv.cfg** → Configuración del entorno virtual
 
-Ejemplo:
-
-* `vistaProducto.py` muestra las opciones para gestionar productos.
+> ⚠️ No se recomienda modificar esta carpeta manualmente.
 
 ---
 
-### 🔌 Conexión (`Connection`)
+### Table
 
-**Archivo:** `conexion.py`
+Define las estructuras de las tablas y coordina la ejecución del sistema.
 
-* Establece la conexión con la base de datos MySQL.
-* Centraliza la configuración de acceso.
+* **TablaCliente.py** → Definición de la tabla clientes
+* **TablaProducto.py** → Definición de la tabla productos
+* **TablaVendedor.py** → Definición de la tabla vendedores
+* **TablaVenta.py** → Definición de la tabla ventas
+* **main.py** → Archivo principal desde donde se ejecuta la aplicación
 
 ---
 
-## ▶️ Ejecución del Sistema
+## Ejecución del Proyecto
 
-Desde la carpeta raíz:
+1. Asegúrese de tener **Python 3** instalado.
+2. Active el entorno virtual (si aplica).
+3. Desde la raíz del proyecto ejecute:
 
 ```bash
-python main.py
-```
-
-Esto inicia el menú principal del sistema.
-
----
-
-## 🧭 Flujo del Sistema
-
-1. Inicio del sistema
-2. Menú principal
-3. Selección del módulo a gestionar:
-
-   * Usuarios
-   * Vendedores
-   * Productos
-   * Tiendas
-   * Ventas
-4. Ejecución de operaciones CRUD
-5. Retorno al menú
-
----
-
-## 📌 Funcionalidades Principales
-
-### 👤 Gestión de Usuarios
-
-* Registrar usuarios
-* Listar usuarios
-* Actualizar información
-* Eliminar usuarios
-
-### 🧑‍💼 Gestión de Vendedores
-
-* Registrar vendedores
-* Consultar vendedores
-* Actualizar datos
-
-### 📦 Gestión de Productos
-
-* Registrar productos
-* Listar productos
-* Actualizar información
-* Eliminar productos
-
-### 🏬 Gestión de Tiendas
-
-* Registrar tiendas
-* Visualizar tiendas
-
-### 🧾 Gestión de Ventas
-
-* Registrar ventas
-* Asociar productos y vendedores
-* Consultar ventas
-
----
-
-## 📈 Ejemplo de Uso
-
-```
-===== MENÚ PRINCIPAL =====
-1. Usuarios
-2. Vendedores
-3. Productos
-4. Tiendas
-5. Ventas
-6. Salir
+python Table/main.py
 ```
 
 ---
 
-## 🚀 Mejoras Futuras
+## Tecnologías Utilizadas
 
-* Autenticación y roles (Admin / Vendedor)
-* Validaciones de entrada
-* Reportes de ventas
-* Persistencia optimizada
-* Interfaz gráfica o versión web
-
----
-
-## 👨‍💻 Autor
-
-**Juan Escobar**
-Estudiante de Desarrollo de Software
+* Python 3
+* Base de datos relacional
+* Programación modular
+* Arquitectura CRUD
 
 ---
 
-## 📄 Licencia
+## Posibles Mejoras
 
-Proyecto de uso académico y educativo.
+* Implementar interfaz gráfica o web
+* Agregar validaciones de datos
+* Manejo de excepciones avanzado
+* Implementar patrón MVC
+* Integración con frameworks como Flask o Django
+
+---
+
+## Licencia
+
+Este proyecto es de uso **académico y educativo**.
+
+---
+
+## Autor
+
+Desarrollado por **Juan**
+
+
